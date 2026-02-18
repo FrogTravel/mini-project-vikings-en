@@ -64,6 +64,8 @@ class War():
         result = random_saxon.receiveDamage(random_viking.attack())
         if random_saxon.health <= 0:
             self.saxonArmy.remove(random_saxon)
+        if not self.saxonArmy:
+            raise Exception("Dead Saxon Army!") 
         return result
     
     def saxonAttack(self):
@@ -72,6 +74,8 @@ class War():
         result = random_viking.receiveDamage(random_saxon.attack())
         if random_viking.health <= 0:
             self.vikingArmy.remove(random_viking)
+        if not self.vikingArmy:
+            raise Exception("Dead Viking Army!") 
         return result
 
     def showStatus(self):
